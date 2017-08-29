@@ -1,3 +1,16 @@
 version: '2'
 services:
-  
+  proxy:
+    image: jwilder/nginx-proxy
+    container_name: workout-manager-nginx-proxy
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    ports:
+      - "80:80"
+
+  users:
+    build: ./services/users
+    image: users
+    container_name: users-service
+    ports:
+      - '5050:5051'

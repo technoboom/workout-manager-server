@@ -1,7 +1,12 @@
 package main
 
-import "fmt"
+import (
+	_ "workout-manager-server/common"
+
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/postgres"
+)
 
 func main() {
-	fmt.Println("Users Service Up and Running...")
+	dbCon, err := gorm.Open("postgres", AppConfig.ConnectionString)
 }

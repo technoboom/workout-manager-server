@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"log"
 	"os"
+
+	"github.com/jinzhu/gorm"
 )
 
 type (
@@ -19,6 +21,9 @@ type (
 
 // AppConfig - contains configuration of the application
 var AppConfig configuration
+
+// dbCon - holds connection to database
+var dbCon *gorm.DB
 
 func initConfig() {
 	file, err := os.Open("common/config.json")

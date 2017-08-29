@@ -2,6 +2,7 @@
 FROM golang:1.9
 
 # install dependencies
+RUN go get -u github.com/jinzhu/gorm
 RUN go get github.com/gorilla/mux
 
 # copy the local package files to the container workspace
